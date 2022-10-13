@@ -28,7 +28,7 @@ test_that("dbWriteTable can write a table", {
   )
 
   dbWriteTable(sc, persisted_table_name, dbi_df[, c("a")], overwrite = TRUE)
-  dbi_df_content <- dbGetQuery(sc, paste("SELECT * FROM ", persisted_table_name, sep=""))
+  dbi_df_content <- dbGetQuery(sc, "SELECT * FROM ?", persisted_table_name)
 
   expect_equal(dbi_df[, c("a")], dbi_df_content)
 })

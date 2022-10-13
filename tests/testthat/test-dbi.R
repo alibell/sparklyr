@@ -27,13 +27,8 @@ test_that("dbWriteTable can write a table", {
     TRUE
   )
 
-<<<<<<< HEAD
   dbWriteTable(sc, persisted_table_name, dbi_df[c("a")], overwrite = TRUE)
   dbi_df_content <- dbGetQuery(sc, paste("SELECT * FROM ", persisted_table_name))
-=======
-  dbWriteTable(sc, persisted_table_name, dbi_df[, c("a")], overwrite = TRUE)
-  dbi_df_content <- dbGetQuery(sc, "SELECT * FROM ?", persisted_table_name)
->>>>>>> cdf0d1fcda5af65b8198c1c6245e8687f761b8df
 
   expect_equal(dbi_df[c("a")], dbi_df_content)
 })

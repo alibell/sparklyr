@@ -120,6 +120,7 @@ Suggests:
     reshape2,
     shiny (>= 1.0.1),
     parsnip,
+    bit64,
     testthat
 Encoding: UTF-8
 RoxygenNote: 7.2.1

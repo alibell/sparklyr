@@ -202,8 +202,14 @@ spark_data_copy <- function(
         df[[column]] <- sapply(
           df[[column]],
           function(e) {
+            if (bit64::is.integer64(e)) {
+              serializable <- e
+            } else {
+              serializable <- as.list(e)
+            }
+
             jsonlite::toJSON(
-              as.list(e),
+              serializable,
               na = "null",
               auto_unbox = TRUE,
               digits = NA
